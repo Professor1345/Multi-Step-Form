@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* 
+  //////////////////////
+  ROOT LAYOUT
+  //////////////////////
+   */
+  .root-layout {
+    @apply flex flex-col sm:flex-row;
+    @apply bg-transparent sm:bg-[hsl(0,_0%,_100%)];
+    @apply p-0 sm:p-3 md:p-4;
+    @apply min-h-screen sm:min-h-[70%] md:min-h-[75%];
+    @apply w-full sm:w-[70%];
+    /* @apply my-32; */
+    @apply rounded-none sm:rounded-xl;
+    @apply font-Ubuntu;
+    @apply justify-between sm:justify-normal;
+  }
+
+  /* 
+  //////////////////////
+  NAVBAR SETTINGS
+  //////////////////////
+   */
+  .nav-container {
+    @apply bg-cover bg-center bg-no-repeat;
+    /* @apply bg-blue-600; */
+    @apply w-auto sm:w-[35%] md:w-[30%];
+    @apply h-[150px] sm:h-auto;
+    @apply rounded-none sm:rounded-xl;
+    @apply flex flex-row sm:flex-col;
+    @apply bg-[url(./src/assets/images/bg-sidebar-mobile.svg)] sm:bg-[url(./src/assets/images/bg-sidebar-desktop.svg)];
+    @apply p-6;
+    @apply font-semibold;
+    @apply justify-center sm:justify-normal;
+    @apply items-start;
+  }
+  .nav {
+    @apply flex flex-row;
+    @apply mb-5;
+    @apply mx-4 sm:mx-0;
+    /* @apply ; */
+  }
+
+  /* .navv {
+    @apply bg-yellow-300;
+  } */
+  .activee {
+    @apply text-[hsl(213,96%,18%)] bg-white !important;
+  }
+
+  .nav-id {
+    @apply border-solid border border-white rounded-full self-center size-7 text-center !important;
+    @apply text-[hsl(0,_0%,_100%)];
+    @apply text-sm;
+    @apply text-center align-middle;
+    @apply flex items-center justify-center shrink-0;
+    /* @apply ; */
+  }
+
+  /* 
+  //////////////////////
+  SECTION
+  //////////////////////
+   */
+  .section {
+    /* @apply bg-slate-500; */
+    @apply w-auto sm:w-[65%] md:w-[70%];
+    /* @apply min-h-[90%]; */
+    @apply flex flex-col justify-between;
+    @apply mx-0 sm:mx-11 md:mx-16 my-0 sm:my-4 md:my-5;
+  }
+
+  /* 
+  //////////////////////
+  INNER OUTLET
+  //////////////////////
+   */
+  .outLet {
+    @apply absolute top-[15%] sm:static;
+    @apply right-[16px] left-[16px];
+    @apply bg-[hsl(0,_0%,_100%)];
+    /* @apply w-[100%]; */
+    @apply py-5 px-4  sm:p-0 rounded-lg;
+    @apply text-sm md:text-[15px];
+  }
+  .personHeader {
+    @apply text-[hsl(213,96%,18%)] text-2xl sm:text-2xl md:text-3xl font-bold;
+  }
+  .personInput {
+    @apply my-4;
+  }
+  /* a {
+    @apply mx-1 p-2 bg-slate-600 text-white;
+  }
+  */
+  /* 
+  //////////////////////
+  BOTTOM NAVIG
+  //////////////////////
+   */
+  .navig {
+    @apply flex justify-between;
+    @apply bg-[hsl(0,_0%,_100%)];
+  }
+
+  .navig button {
+    @apply py-2 px-3 m-3 sm:m-0 bg-[hsl(213,96%,18%)];
+    @apply text-[hsl(0,_0%,_100%)] text-[15px];
+    @apply rounded;
+  }
+  .navig button:last-child {
+    @apply bg-[hsl(243,_100%,_62%)];
+    @apply px-[18.5px];
+  }
+}
