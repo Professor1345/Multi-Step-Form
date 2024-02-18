@@ -34,7 +34,7 @@
     @apply h-[150px] sm:h-auto;
     @apply rounded-none sm:rounded-xl;
     @apply flex flex-row sm:flex-col;
-    @apply bg-[url('./src/assets/images/bg-sidebar-mobile.svg')] sm:bg-[url('./src/assets/images/bg-sidebar-desktop.svg')];
+    @apply bg-[url('./assets/images/bg-sidebar-mobile.svg')] sm:bg-[url('./assets/images/bg-sidebar-desktop.svg')];
     @apply p-6;
     @apply font-semibold;
     @apply justify-center sm:justify-normal;
