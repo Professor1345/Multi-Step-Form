@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 
 const RootLayout = () => {
   const [active, setActive] = useState(
-    localStorage.getItem("active") == '' || null || []
-      ? "Step 1"
+    localStorage.getItem("active") == undefined
+      ? localStorage.setItem("active", "Step 1")
       : localStorage.getItem("active")
   );
   useEffect(() => {
