@@ -2,11 +2,13 @@
 
 import { NavLink } from "react-router-dom";
 import { NavLinks } from "../constants";
+// import { useEffect } from "react";
 // import { useState } from "react";
 // import { bgSideDesktop, bgSideMobile } from "../assets/images";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ active, setActive, setNavDis }) => {
+  
   return (
     <div className={`nav-container`}>
       {NavLinks.map((navlink) => {
@@ -14,13 +16,14 @@ const Navbar = ({ active, setActive, setNavDis }) => {
           <NavLink
             key={navlink.id}
             to={navlink.link}
-            onClick={() => {setActive(navlink.step); setNavDis(false);}}
+            onClick={() => {
+              setActive(navlink.step);
+              setNavDis(false);
+            }}
             className="nav"
           >
             <div
-              className={`nav-id ${
-                active === navlink.step ? "activee" : null
-              } `}
+              className={`nav-id ${active === navlink.step ? "activeId" : ""} `}
             >
               <span>{navlink.id}</span>
             </div>
