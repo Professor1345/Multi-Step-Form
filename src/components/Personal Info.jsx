@@ -15,28 +15,33 @@ const PersonalInfo = () => {
             name="name"
             id="name"
             placeholder="e.g. Stephen King"
+            autoComplete="name"
             className="w-full rounded-md p-2 border-solid border border-[hsl(231,11%,63%)]"
           />
         </div>
 
         <div className="personInput">
-          <h3 className="text-[hsl(213,96%,18%)] my-2 font-semibold">Name</h3>
+          <h3 className="text-[hsl(213,96%,18%)] my-2 font-semibold">Email Address</h3>
           <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="e.g. Stephen King"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="e.g. stephenking@lorem.com"
+            autoComplete="name"
             className="w-full rounded-md p-2 border-solid border border-[hsl(231,11%,63%)]"
           />
         </div>
 
         <div className="personInput">
-          <h3 className="text-[hsl(213,96%,18%)] my-2 font-semibold">Name</h3>
+          <h3 className="text-[hsl(213,96%,18%)] my-2 font-semibold">
+            Phone Number
+          </h3>
           <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="e.g. Stephen King"
+            type="number"
+            name="number"
+            id="number"
+            placeholder="e.g. +1 234 567 890"
+            autoComplete="number"
             className="w-full rounded-md p-2 border-solid border border-[hsl(231,11%,63%)]"
           />
         </div>
