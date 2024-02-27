@@ -23,25 +23,25 @@ const App = () => {
   // PersonalInfo State
   const [valName, setValName] = useState();
   const [valEmail, setValEmail] = useState();
-
   const [valNumber, setValNumber] = useState();
 
-  const [active, setActive] = useState(
-    localStorage.getItem("active") == undefined
-      ? localStorage.setItem("active", "Step 1")
-      : localStorage.getItem("active")
-  );
+  const [active, setActive] = useState("Step 1");
+
   useEffect(() => {
+    localStorage.getItem("active") == undefined
+      ? setActive("Step 1")
+      : localStorage.getItem("active");
+
     localStorage.setItem("active", active);
   }, [active]);
 
   // Navigator display when in summary section
-  const [navDis, setNavDis] = useState(
-    localStorage.getItem("navDis") == undefined
-      ? localStorage.setItem("navDis", "true")
-      : localStorage.getItem("navDis")
-  );
+  const [navDis, setNavDis] = useState(true);
   useEffect(() => {
+    localStorage.getItem("navDis") == undefined
+      ? setNavDis(true)
+      : localStorage.getItem("navDis");
+
     localStorage.setItem("navDis", navDis);
   }, [navDis]);
 
@@ -72,7 +72,7 @@ const App = () => {
         setActive,
         validate,
         setValidate,
-        
+
         navDis,
         setNavDis,
 
