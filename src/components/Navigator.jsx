@@ -13,15 +13,20 @@ const Navigator = () => {
     active,
     setActive,
     validate,
-    // setValidate,
+    setValidate,
 
     // setShowValidate,
     navDis,
     setNavDis,
 
+    valName,
     setValName,
+    valEmail,
     setValEmail,
+    valNumber,
     setValNumber,
+    emailError,
+    setEmailError,
   } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -46,6 +51,7 @@ const Navigator = () => {
   };
 
   const nextStep = () => {
+    setValidate(false);
     let numberr =
       // active.split(" ").length > 1
       // ?
@@ -62,16 +68,19 @@ const Navigator = () => {
     //   navigate(NavLinks[numberr - 1].link);
     // }
     if (validate === true) {
-      // setValName(false);
-      // setValEmail(false);
-      // setValNumber(false);
+      valName != true ? setValName(true) : setValName(false);
+      valEmail != true ? setValEmail(true) : setValEmail(false);
+      valNumber != true ? setValNumber(true) : setValNumber(false);
+      emailError == "" ? emailError : setEmailError("");
       numberr >= 1 && numberr <= NavLinks.length
         ? navigate(NavLinks[numberr - 1].link)
         : null;
     } else {
-      // setValName(true);
-      // setValEmail(true);
-      // setValNumber(true);
+      valName != true ? setValName(true) : setValName(false);
+      valEmail != true ? setValEmail(true) : setValEmail(false);
+      valNumber != true ? setValNumber(true) : setValNumber(false);
+      emailError == "" ? emailError : setEmailError("This field is required");
+      // setEmailError("");
     }
   };
 

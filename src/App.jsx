@@ -24,23 +24,28 @@ const App = () => {
   const [valName, setValName] = useState();
   const [valEmail, setValEmail] = useState();
   const [valNumber, setValNumber] = useState();
+  const [emailError, setEmailError] = useState("");
 
-  const [active, setActive] = useState("Step 1");
+  // let activeState;
+  const [active, setActive] = useState(localStorage.getItem("active") || "Step 1");
 
+  // if (localStorage.getItem("active") == undefined) {
+  //   // setActive("Step 1");
+  //   localStorage.setItem("active", "Step 1");
+  // } else {
+  //   localStorage.getItem("active");
+  // }
   useEffect(() => {
-    localStorage.getItem("active") == undefined
-      ? setActive("Step 1")
-      : localStorage.getItem("active");
-
+    localStorage.getItem("active");
     localStorage.setItem("active", active);
   }, [active]);
 
   // Navigator display when in summary section
-  const [navDis, setNavDis] = useState(true);
+  const [navDis, setNavDis] = useState(localStorage.getItem("navDis") || true);
   useEffect(() => {
-    localStorage.getItem("navDis") == undefined
-      ? setNavDis(true)
-      : localStorage.getItem("navDis");
+    // localStorage.getItem("navDis") == undefined
+    //   ? setNavDis(true)
+    //   : localStorage.getItem("navDis");
 
     localStorage.setItem("navDis", navDis);
   }, [navDis]);
@@ -82,6 +87,8 @@ const App = () => {
         setValEmail,
         valNumber,
         setValNumber,
+        emailError,
+        setEmailError,
       }}
     >
       <div className="bg-[hsl(229,24%,87%)] h-screen block sm:flex justify-center items-center">

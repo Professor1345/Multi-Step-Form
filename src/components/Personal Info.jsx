@@ -1,12 +1,20 @@
 // import React from 'react'
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import UserContext from "../UserContext";
 
 const PersonalInfo = () => {
-  const { setValidate, valName, setValName, valEmail, setValEmail, valNumber, setValNumber } = useContext(UserContext);
-  
-  const [emailError, setEmailError] = useState("");
+  const {
+    setValidate,
+    valName,
+    setValName,
+    valEmail,
+    setValEmail,
+    valNumber,
+    setValNumber,
+    emailError,
+    setEmailError,
+  } = useContext(UserContext);
 
   // useEffect(() => {
   //   valName === false ? setValidate(false) : setValidate(true);
@@ -18,7 +26,7 @@ const PersonalInfo = () => {
   //     setValEmail(true);
   //     setValNumber(true);
   //   }
-    
+
   //   if (showValidate === undefined) {
   //     setValName(false);
   //     setValEmail(false);
@@ -34,7 +42,11 @@ const PersonalInfo = () => {
     if (valName === true || valEmail === true || valNumber === true) {
       setValidate(false);
       console.log("Setting validate to false...");
+    } else {
+      setValidate(true);
+      console.log("Setting validate to true...");
     }
+
     if (
       valName === undefined ||
       valEmail === undefined ||
@@ -44,14 +56,8 @@ const PersonalInfo = () => {
       // Otherwise, setValidate to true
       console.log("Setting validate to false...");
     }
-    
-    if (valName === false || valEmail === false || valNumber === false){
-      setValidate(true);
-      console.log("Setting validate to true...");
-    }
   }, [valName, valEmail, valNumber]); // Specify dependencies here
 
-  
   // const changeEmail = () => {
   //   let input = document.getElementById("email").value;
 
@@ -221,6 +227,7 @@ const PersonalInfo = () => {
             }
             `}
             onChange={validateNumber}
+            onBlur={validateNumber}
           />
         </div>
       </div>
