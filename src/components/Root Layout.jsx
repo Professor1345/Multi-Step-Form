@@ -3,35 +3,31 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Navigator from "./Navigator";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 const RootLayout = () => {
-  const [active, setActive] = useState(
-    localStorage.getItem("active") == undefined
-      ? localStorage.setItem("active", "Step 1")
-      : localStorage.getItem("active")
-  );
-  useEffect(() => {
-    localStorage.setItem("active", active);
-  }, [active]);
-  const [navDis, setNavDis] = useState(false);
+  // useEffect(() => {
+  //   localStorage.setItem("active", active);
+  // }, [active]);
+  
+
   return (
     <div className="root-layout">
       <Navbar
-        active={active}
-        setActive={setActive}
-        navDis={navDis}
-        setNavDis={setNavDis}
+        // active={active}
+        // setActive={setActive}
+        // navDis={navDis}
+        // setNavDis={setNavDis}
       />
       <main className="section ">
         <div className="outLet ">
           <Outlet />
         </div>
         <Navigator
-          active={active}
-          setActive={setActive}
-          navDis={navDis}
-          setNavDis={setNavDis}
+          // active={active}
+          // setActive={setActive}
+          // navDis={navDis}
+          // setNavDis={setNavDis}
         />
       </main>
     </div>

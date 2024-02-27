@@ -1,25 +1,31 @@
+/* eslint-disable no-undef */
 // import React from 'react'
 
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { NavLinks } from "../constants";
+import { useContext } from "react";
+import UserContext from "../UserContext";
+
 // import { useEffect } from "react";
 // import { useState } from "react";
 // import { bgSideDesktop, bgSideMobile } from "../assets/images";
 
-// eslint-disable-next-line react/prop-types
-const Navbar = ({ active, setActive, setNavDis }) => {
-  
+const Navbar = () => {
+  // eslint-disable-next-line react/prop-types
+  const { active } = useContext(UserContext);
+  // const setActive = useContext(UserContext);
   return (
     <div className={`nav-container`}>
       {NavLinks.map((navlink) => {
         return (
-          <NavLink
+          <div
             key={navlink.id}
-            to={navlink.link}
-            onClick={() => {
-              setActive(navlink.step);
-              setNavDis(false);
-            }}
+            // to={navlink.link}
+            // onClick={() => {
+            // alert(active);
+            // setActive(navlink.step);
+            //   setNavDis(false);
+            // }}
             className="nav"
           >
             <div
@@ -36,7 +42,7 @@ const Navbar = ({ active, setActive, setNavDis }) => {
               </div>
               {/* <img src={bgSideDesktop} alt="" /> */}
             </div>
-          </NavLink>
+          </div>
         );
       })}
     </div>

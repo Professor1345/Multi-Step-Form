@@ -1,13 +1,29 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 // import React from 'react'
 
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavLinks } from "../constants";
+import UserContext from "../UserContext";
 
 // eslint-disable-next-line react/prop-types
-const Navigator = ({ active, setActive, navDis, setNavDis }) => {
-  
+const Navigator = () => {
+  const {
+    active,
+    setActive,
+    validate,
+    // setValidate,
+
+    // setShowValidate,
+    navDis,
+    setNavDis,
+
+    setValName,
+    setValEmail,
+    setValNumber,
+  } = useContext(UserContext);
+
   const navigate = useNavigate();
   const goBack = () => {
     let numberr =
@@ -15,7 +31,7 @@ const Navigator = ({ active, setActive, navDis, setNavDis }) => {
         ? Number(active.split(" ")[1]) === 1
           ? Number(active.split(" ")[1])
           : Number(active.split(" ")[1]) - 1
-        : Number(active[0]) === 1
+        : Number(active[0]) <= 1
         ? Number(active)
         : Number(active) - 1;
     setActive("Step " + numberr);
@@ -31,6 +47,36 @@ const Navigator = ({ active, setActive, navDis, setNavDis }) => {
 
   const nextStep = () => {
     let numberr =
+      // active.split(" ").length > 1
+      // ?
+      Number(active.split(" ")[1]) >= 4
+        ? Number(active.split(" ")[1])
+        : Number(active.split(" ")[1]) + 1;
+    // : (Number(active[0]) >= 4
+    //     ? Number(active)
+    //     : Number(active) + 1)
+
+    validate ? setActive("Step " + numberr) : null;
+
+    // if (numberr >= 1 && numberr <= NavLinks.length) {
+    //   navigate(NavLinks[numberr - 1].link);
+    // }
+    if (validate === true) {
+      // setValName(false);
+      // setValEmail(false);
+      // setValNumber(false);
+      numberr >= 1 && numberr <= NavLinks.length
+        ? navigate(NavLinks[numberr - 1].link)
+        : null;
+    } else {
+      // setValName(true);
+      // setValEmail(true);
+      // setValNumber(true);
+    }
+  };
+
+  const conFirm = () => {
+    let numberr =
       active.split(" ").length > 1
         ? Number(active.split(" ")[1]) >= 4
           ? Number(active.split(" ")[1])
@@ -44,15 +90,13 @@ const Navigator = ({ active, setActive, navDis, setNavDis }) => {
     //   navigate(NavLinks[numberr - 1].link);
     // }
 
-    numberr >= 1 && numberr <= NavLinks.length
-      ? navigate(NavLinks[numberr - 1].link)
+    numberr >= 1 && numberr <= NavLinks.length + 1
+      ? navigate("/thank-you")
       : null;
+
+    setNavDis(false);
   };
 
-  const conFirm = () => {
-    navigate("/thank-you");
-    setNavDis(true);
-  };
   useEffect(() => {
     // let goBack = document.querySelectorAll(".navig button")[0];
   }, []);
@@ -61,7 +105,7 @@ const Navigator = ({ active, setActive, navDis, setNavDis }) => {
     <div
       className={`navig ${
         active === "Step 1" ? "justify-end" : "justify-between"
-      } ${navDis ? "hidden" : "flex"}`}
+      } ${navDis ? "flex" : "hidden"}`}
     >
       <button
         onClick={goBack}
