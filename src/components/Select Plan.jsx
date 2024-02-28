@@ -1,15 +1,23 @@
 // import React from 'react'
 
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Plans } from "../constants";
+import UserContext from "../UserContext";
 
 // eslint-disable-next-line react/prop-types
 const SelectPlan = () => {
   const [planToggle, setPlanToggle] = useState(true);
   const [planClick, setPlanClick] = useState("Arcade");
+
+  const { setValidate } = useContext(UserContext);
+  useEffect(() => {
+    const selectedPlan = Plans.find(plan => plan.title === planClick);
+    // If a plan is found, setValidate to true, otherwise false
+    setValidate(!!selectedPlan);
+  }, [planClick]);
   // const selectPlan = () => {};
   return (
-    <div className="text-[hsl(231,11%,63%)]">
+    <div className="select-plan">
       <div>
         <h2 className="selectHeader">Select your plan</h2>
         <p>You have the option of monthly or yearly billing.</p>

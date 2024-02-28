@@ -41,10 +41,10 @@ const PersonalInfo = () => {
   useEffect(() => {
     if (valName === true || valEmail === true || valNumber === true) {
       setValidate(false);
-      console.log("Setting validate to false...");
+      // console.log("Setting validate to false...");
     } else if (valName === false || valEmail === false || valNumber === false) {
       setValidate(true);
-      console.log("Setting validate to true...");
+      // console.log("Setting validate to true...");
     } else if (
       valName === undefined ||
       valEmail === undefined ||
@@ -52,7 +52,7 @@ const PersonalInfo = () => {
     ) {
       setValidate(false);
       // Otherwise, setValidate to true
-      console.log("Setting validate to falseee...");
+      // console.log("Setting validate to falseee...");
     }
   }, [valName, valEmail, valNumber]); // Specify dependencies here
 

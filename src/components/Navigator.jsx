@@ -37,7 +37,8 @@ const Navigator = () => {
     emailError.trim() == ""
         ? setEmailError("This field is required")
         : emailError;
-    // setValidate(false);
+    setValidate(false);
+    
     let numberr =
       active.split(" ").length > 1
         ? Number(active.split(" ")[1]) === 1

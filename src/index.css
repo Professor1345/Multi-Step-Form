@@ -97,8 +97,34 @@
   .personInput {
     @apply my-4;
   }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
   /* SELECT PLANS */
+
+  .select-plan {
+    @apply text-[hsl(231,11%,63%)] overflow-y-scroll;
+  }
+  /* @media (max-height: 80vh) {
+    .select-plan {
+      @apply max-h-[20vh];
+    }
+  } */
+
+  @media (max-height: 100vh) {
+    .select-plan {
+      @apply max-h-[65vh];
+    }
+  }
+
+  /* @media (min-height: 100vh) {
+    .select-plan {
+      @apply max-h-[65vh];
+    }
+  } */
   .selectHeader {
     @apply text-[hsl(213,96%,18%)] text-2xl sm:text-2xl md:text-3xl font-bold mb-1;
   }
