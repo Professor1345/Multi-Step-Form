@@ -31,6 +31,13 @@ const Navigator = () => {
 
   const navigate = useNavigate();
   const goBack = () => {
+    setValName(true);
+    setValEmail(true);
+    setValNumber(true);
+    emailError.trim() == ""
+        ? setEmailError("This field is required")
+        : emailError;
+    // setValidate(false);
     let numberr =
       active.split(" ").length > 1
         ? Number(active.split(" ")[1]) === 1
@@ -68,18 +75,20 @@ const Navigator = () => {
     //   navigate(NavLinks[numberr - 1].link);
     // }
     if (validate === true) {
-      valName != true ? setValName(true) : setValName(false);
-      valEmail != true ? setValEmail(true) : setValEmail(false);
-      valNumber != true ? setValNumber(true) : setValNumber(false);
-      emailError == "" ? emailError : setEmailError("");
+      setValName(false);
+      setValEmail(false);
+      setValNumber(false);
+      setEmailError("");
       numberr >= 1 && numberr <= NavLinks.length
         ? navigate(NavLinks[numberr - 1].link)
         : null;
     } else {
-      valName != true ? setValName(true) : setValName(false);
-      valEmail != true ? setValEmail(true) : setValEmail(false);
-      valNumber != true ? setValNumber(true) : setValNumber(false);
-      emailError == "" ? emailError : setEmailError("This field is required");
+      valName == false ? setValName(false) : setValName(true);
+      valEmail == false ? setValEmail(false) : setValEmail(true);
+      valNumber == false ? setValNumber(false) : setValNumber(true);
+      emailError.trim() == ""
+        ? setEmailError("This field is required")
+        : emailError;
       // setEmailError("");
     }
   };

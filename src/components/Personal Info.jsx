@@ -42,19 +42,17 @@ const PersonalInfo = () => {
     if (valName === true || valEmail === true || valNumber === true) {
       setValidate(false);
       console.log("Setting validate to false...");
-    } else {
+    } else if (valName === false || valEmail === false || valNumber === false) {
       setValidate(true);
       console.log("Setting validate to true...");
-    }
-
-    if (
+    } else if (
       valName === undefined ||
       valEmail === undefined ||
       valNumber === undefined
     ) {
       setValidate(false);
       // Otherwise, setValidate to true
-      console.log("Setting validate to false...");
+      console.log("Setting validate to falseee...");
     }
   }, [valName, valEmail, valNumber]); // Specify dependencies here
 
