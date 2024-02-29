@@ -96,14 +96,19 @@
       @apply max-h-[73vh];
     }
   } */
+  @media (max-width: 768px) and (min-height: 700px) {
+    .outLet {
+      @apply absolute top-[12%] sm:static;
+    }
+  }
 
-  @media (max-width: 767px) and (max-height: 595px) {
+  @media (max-width: 768px) and (max-height: 595px) {
     .outLet {
       @apply max-h-[70vh];
     }
   }
 
-  @media (max-width: 767px) and (max-height: 450px) {
+  @media (max-width: 768px) and (max-height: 450px) {
     .outLet {
       @apply max-h-[65vh];
     }
