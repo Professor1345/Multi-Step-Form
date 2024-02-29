@@ -14,6 +14,15 @@ const AddOns = () => {
     const newClickAddons = [...addonsClick];
     newClickAddons[index] = !newClickAddons[index];
     setAddonsClick(newClickAddons);
+    const indicesO = [];
+    for (const [index, value] of newClickAddons.entries()) {
+      if (value === true) {
+        // console.log(index);
+        indicesO.push(index + 1);
+      }
+    }
+    console.log(indicesO);
+    
     setValidate(true);
   };
 
