@@ -1,14 +1,13 @@
 // import React from 'react'
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Plans } from "../constants";
 import UserContext from "../UserContext";
 
 // eslint-disable-next-line react/prop-types
 const SelectPlan = () => {
-  const [planClick, setPlanClick] = useState();
-
-  const { setValidate, planToggle, setPlanToggle } = useContext(UserContext);
+  const { setValidate, planToggle, setPlanToggle, planClick, setPlanClick } =
+    useContext(UserContext);
   useEffect(() => {
     const selectedPlan = Plans.find((plan) => plan.title === planClick);
     // If a plan is found, setValidate to true, otherwise false

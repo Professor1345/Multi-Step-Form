@@ -4,9 +4,12 @@ import { useContext } from "react";
 import { addOns } from "../constants";
 import UserContext from "../UserContext";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const AddOns = () => {
   const { planToggle, setValidate } = useContext(UserContext);
+
+  const [addOnsClickIndices, setAddOnsClickIndices] = useState([]);
   const [addonsClick, setAddonsClick] = useState(
     Array(addOns.length).fill(false)
   );
@@ -14,17 +17,26 @@ const AddOns = () => {
     const newClickAddons = [...addonsClick];
     newClickAddons[index] = !newClickAddons[index];
     setAddonsClick(newClickAddons);
-    const indicesO = [];
+    const clickIndices = [];
     for (const [index, value] of newClickAddons.entries()) {
       if (value === true) {
         // console.log(index);
-        indicesO.push(index + 1);
+        clickIndices.push(index + 1);
+        // addOnsClickIndices.push(index + 1);
+        // setAddOnsClickIndices();
       }
     }
-    console.log(indicesO);
-    
+
+    setAddOnsClickIndices(clickIndices);
+    // addOnsClickIndices.pop(index + 1);
+    // console.log(clickIndices);
+
     setValidate(true);
   };
+
+  useEffect(() => {
+    console.log(addOnsClickIndices);
+  }, [addOnsClickIndices]);
 
   return (
     <div className="text-[hsl(231,11%,63%)]">

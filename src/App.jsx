@@ -26,8 +26,12 @@ const App = () => {
   const [valNumber, setValNumber] = useState();
   const [emailError, setEmailError] = useState("");
 
-  // Select Plan Toggle State
+  // Select Plane State
   const [planToggle, setPlanToggle] = useState(true);
+  const [planClick, setPlanClick] = useState("Arcade");
+
+  // Addons State
+  const [addOnsClickIndices, setAddOnsClickIndices] = useState([]);
 
   // let activeState;
   const [active, setActive] = useState(
@@ -97,6 +101,11 @@ const App = () => {
 
         planToggle,
         setPlanToggle,
+        planClick,
+        setPlanClick,
+
+        addOnsClickIndices,
+        setAddOnsClickIndices,
       }}
     >
       <div className="bg-[hsl(229,24%,87%)] h-screen block sm:flex justify-center items-center">

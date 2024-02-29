@@ -193,6 +193,15 @@
   .addons-items:last-child {
     @apply mb-0 sm:mb-0 md:mb-0;
   }
+
+  /* SUMMARY */
+.summary{
+  @apply text-[hsl(231,11%,63%)];
+}
+.summary-header{
+  @apply text-[hsl(213,96%,18%)] text-2xl sm:text-2xl md:text-3xl font-bold mb-1;
+}
+
   /* 
   //////////////////////
   BOTTOM NAVIG
