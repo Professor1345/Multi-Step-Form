@@ -17,15 +17,13 @@ const AddOns = () => {
     setValidate(true);
   };
 
-  
-
   return (
     <div className="text-[hsl(231,11%,63%)]">
       <div>
         <h2 className="addonsHeader">Pick add-ons</h2>
         <p>Add-ons help enhance your gaming experience.</p>
       </div>
-      <div className="flex justify-between flex-col mt-5 mb-4 sm:mt-7 sm:mb-6">
+      <div className="flex justify-between flex-col mt-4 mb-3 sm:mt-5 sm:mb-4">
         {addOns.map((addons, index) => {
           return (
             <div
