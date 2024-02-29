@@ -9,7 +9,7 @@ import UserContext from "../UserContext";
 // eslint-disable-next-line react/prop-types
 const ThankYou = () => {
   // eslint-disable-next-line react/prop-types
-  const { setActive, setNavDis } = useContext(UserContext);
+  const { setActive, setNavDis, setValidate, setValName, setValEmail, setValNumber } = useContext(UserContext);
   // const  = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -18,6 +18,10 @@ const ThankYou = () => {
     navigate("/");
     setActive("Step 1");
     setNavDis(true);
+    setValidate(false);
+    setValName();
+    setValEmail();
+    setValNumber();
   };
   return (
     <div>

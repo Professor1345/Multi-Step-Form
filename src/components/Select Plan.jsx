@@ -6,12 +6,11 @@ import UserContext from "../UserContext";
 
 // eslint-disable-next-line react/prop-types
 const SelectPlan = () => {
-  const [planToggle, setPlanToggle] = useState(true);
-  const [planClick, setPlanClick] = useState("Arcade");
+  const [planClick, setPlanClick] = useState();
 
-  const { setValidate } = useContext(UserContext);
+  const { setValidate, planToggle, setPlanToggle } = useContext(UserContext);
   useEffect(() => {
-    const selectedPlan = Plans.find(plan => plan.title === planClick);
+    const selectedPlan = Plans.find((plan) => plan.title === planClick);
     // If a plan is found, setValidate to true, otherwise false
     setValidate(!!selectedPlan);
   }, [planClick]);
@@ -54,7 +53,7 @@ const SelectPlan = () => {
       <div className="plan-toggle">
         <div className="mx-2">Monthly</div>
         <div
-          className="bg-[hsl(213,96%,18%)] w-10 h-5 rounded-full relative m-auto mx-2"
+          className="bg-[hsl(213,96%,18%)] w-10 h-5 rounded-full relative m-auto mx-2 cursor-pointer"
           onClick={() => setPlanToggle(!planToggle)}
         >
           <div

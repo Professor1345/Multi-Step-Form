@@ -35,10 +35,10 @@ const Navigator = () => {
     setValEmail(true);
     setValNumber(true);
     emailError.trim() == ""
-        ? setEmailError("This field is required")
-        : emailError;
+      ? setEmailError("This field is required")
+      : emailError;
     setValidate(false);
-    
+
     let numberr =
       active.split(" ").length > 1
         ? Number(active.split(" ")[1]) === 1
@@ -95,6 +95,7 @@ const Navigator = () => {
   };
 
   const conFirm = () => {
+    // setValidate(false);
     let numberr =
       active.split(" ").length > 1
         ? Number(active.split(" ")[1]) >= 4
@@ -114,6 +115,7 @@ const Navigator = () => {
       : null;
 
     setNavDis(false);
+    setValidate(false);
   };
 
   useEffect(() => {

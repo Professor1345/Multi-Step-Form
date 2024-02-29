@@ -97,8 +97,7 @@ const PersonalInfo = () => {
 
     try {
       if (email.value.trim() == "") throw "This field is required";
-      if (!emailRegex.test(email.value))
-        throw "The email address is not formatted correctly";
+      if (!emailRegex.test(email.value)) throw "Enter a valid email";
       else {
         setValEmail(false);
         setEmailError("");
@@ -138,7 +137,7 @@ const PersonalInfo = () => {
             name="name"
             id="name"
             placeholder="e.g. Stephen King"
-            autoComplete="name"
+            autoComplete="on"
             required
             className={`w-full rounded-md p-2 border-solid border outline-none border-[hsl(231,11%,63%)] 
             ${
@@ -179,7 +178,7 @@ const PersonalInfo = () => {
             name="email"
             id="email"
             placeholder="e.g. stephenking@lorem.com"
-            autoComplete="email"
+            autoComplete="on"
             required
             className={`w-full rounded-md p-2 border-solid border border-[hsl(231,11%,63%)] hover:border-[hsl(243,_100%,_62%)] outline-none  ${
               valEmail
@@ -215,7 +214,7 @@ const PersonalInfo = () => {
             name="number"
             id="number"
             placeholder="e.g. +1 234 567 890"
-            autoComplete="number"
+            autoComplete="on"
             required
             className={`w-full rounded-md p-2 border-solid border border-[hsl(231,11%,63%)] outline-none
             ${

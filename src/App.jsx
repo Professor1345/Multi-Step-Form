@@ -26,8 +26,13 @@ const App = () => {
   const [valNumber, setValNumber] = useState();
   const [emailError, setEmailError] = useState("");
 
+  // Select Plan Toggle State
+  const [planToggle, setPlanToggle] = useState(true);
+
   // let activeState;
-  const [active, setActive] = useState(localStorage.getItem("active") || "Step 1");
+  const [active, setActive] = useState(
+    localStorage.getItem("active") || "Step 1"
+  );
 
   // if (localStorage.getItem("active") == undefined) {
   //   // setActive("Step 1");
@@ -89,6 +94,9 @@ const App = () => {
         setValNumber,
         emailError,
         setEmailError,
+
+        planToggle,
+        setPlanToggle,
       }}
     >
       <div className="bg-[hsl(229,24%,87%)] h-screen block sm:flex justify-center items-center">
