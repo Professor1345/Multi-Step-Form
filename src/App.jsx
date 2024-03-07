@@ -5,6 +5,7 @@ import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
+  // useNavigate,
 } from "react-router-dom";
 import PersonalInfo from "./components/Personal Info";
 import SelectPlan from "./components/Select Plan";
@@ -18,6 +19,7 @@ import UserContext from "./UserContext";
 
 const App = () => {
   const [validate, setValidate] = useState(false);
+  // const navigate = useNavigate();
   // const [showvalidate, setShowValidate] = useState(false);
 
   // PersonalInfo State
@@ -44,6 +46,23 @@ const App = () => {
   // } else {
   //   localStorage.getItem("active");
   // }
+
+  // Windows Reload
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      window.location.href = "/";
+      //   window.scrollTo(0,0);
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+   return () => {
+    window.removeEventListener("beforeunload", handleBeforeUnload);
+   } // navigate("/")
+    // window.location.href = "/";
+  }, []);
+
   useEffect(() => {
     localStorage.getItem("active");
     localStorage.setItem("active", active);

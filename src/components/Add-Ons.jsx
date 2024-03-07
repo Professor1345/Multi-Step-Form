@@ -7,9 +7,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const AddOns = () => {
-  const { planToggle, setValidate } = useContext(UserContext);
+  const { planToggle, setValidate, addOnsClickIndices, setAddOnsClickIndices } =
+    useContext(UserContext);
 
-  const [addOnsClickIndices, setAddOnsClickIndices] = useState([]);
+  // const [] = useState([]);
   const [addonsClick, setAddonsClick] = useState(
     Array(addOns.length).fill(false)
   );
@@ -37,6 +38,8 @@ const AddOns = () => {
   useEffect(() => {
     console.log(addOnsClickIndices);
   }, [addOnsClickIndices]);
+
+  
 
   return (
     <div className="text-[hsl(231,11%,63%)]">

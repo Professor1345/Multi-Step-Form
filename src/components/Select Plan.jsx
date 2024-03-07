@@ -8,6 +8,7 @@ import UserContext from "../UserContext";
 const SelectPlan = () => {
   const { setValidate, planToggle, setPlanToggle, planClick, setPlanClick } =
     useContext(UserContext);
+    
   useEffect(() => {
     const selectedPlan = Plans.find((plan) => plan.title === planClick);
     // If a plan is found, setValidate to true, otherwise false
