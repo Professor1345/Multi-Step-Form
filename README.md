@@ -44,7 +44,7 @@ src/
 1. Clone the repository:
 
 ```bash
-git clone <https://github.com/Professor1345/Multi-Step-Form.git>
+git clone https://github.com/Professor1345/Multi-Step-Form.git
 ```
 
 2. Navigate to the project directory:
