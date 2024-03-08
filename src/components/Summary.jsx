@@ -77,7 +77,7 @@ const Summary = () => {
   }, [addOnsClickIndices, planToggle]);
 
   useEffect(() => {
-     !isNaN(addOnsValue) || addOnsValue.length > 0
+    !isNaN(addOnsValue) || addOnsValue.length > 0
       ? addOnsValue.length > 1
         ? addOnsValue.reduce((value, total) => {
             const totalAddOns = Number(value) + Number(total);
@@ -89,9 +89,9 @@ const Summary = () => {
           })
         : setAddOnsValueTotal(Number(addOnsValue))
       : setAddOnsValueTotal(0);
-          // !isNaN(addOnsValueTotal) ? setAddOnsValueTotal(addOnsValueTotal) :setAddOnsValueTotal(0);
+    // !isNaN(addOnsValueTotal) ? setAddOnsValueTotal(addOnsValueTotal) :setAddOnsValueTotal(0);
     // console.log(addOnsValue);
-    console.log(addOnsValueTotal);
+    // console.log(addOnsValueTotal);
   }, [addOnsValueTotal, addOnsValue]);
 
   return (
@@ -157,16 +157,15 @@ const Summary = () => {
         </div>
         <div className="text-[hsl(243,100%,62%)] text-lg md:text-xl font-bold my-auto">
           {planSummary.map((plans) => {
+            const total = planToggle
+              ? Number(plans.monthly.split("/")[0].slice(1)) + addOnsValueTotal
+              : Number(plans.yearly.split("/")[0].slice(1)) + addOnsValueTotal;
+
+            const displayTotal = isNaN(total) ? "0" : total;
             return (
               <div key={plans.id}>
                 <span>+$</span>
-                <span>
-                  {planToggle
-                    ? Number(plans.monthly.split("/")[0].slice(1)) +
-                      addOnsValueTotal
-                    : Number(plans.yearly.split("/")[0].slice(1)) +
-                      addOnsValueTotal}
-                </span>
+                <span>{displayTotal}</span>
                 <span>{planToggle ? "/mo" : "/yr"}</span>
               </div>
             );

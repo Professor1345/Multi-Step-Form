@@ -4,10 +4,10 @@ import { useContext } from "react";
 import { addOns } from "../constants";
 import UserContext from "../UserContext";
 import { useState } from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const AddOns = () => {
-  const { planToggle, setValidate, addOnsClickIndices, setAddOnsClickIndices } =
+  const { planToggle, setValidate, setAddOnsClickIndices } =
     useContext(UserContext);
 
   // const [] = useState([]);
@@ -35,9 +35,9 @@ const AddOns = () => {
     setValidate(true);
   };
 
-  useEffect(() => {
-    console.log(addOnsClickIndices);
-  }, [addOnsClickIndices]);
+  // useEffect(() => {
+  //   console.log(addOnsClickIndices);
+  // }, [addOnsClickIndices]);
 
   
 
@@ -63,8 +63,8 @@ const AddOns = () => {
                 <input
                   type="checkbox"
                   className={`appearance-auto hover:accent-[hsl(243,100%,62%)] accent-[hsl(243,100%,62%)] size-5 shrink-0 my-auto cursor-pointer`}
-                  name=""
-                  id=""
+                  name={addons.title}
+                  id={addons.title}
                   checked={addonsClick[index]}
                   onChange={() => {}}
                 />

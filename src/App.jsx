@@ -50,22 +50,30 @@ const App = () => {
   // Windows Reload
 
   useEffect(() => {
-    const handleBeforeUnload = () => {
-      window.location.href = "/";
-      //   window.scrollTo(0,0);
-    };
+    // const handleBeforeUnload = () => {
+    //   // window.location.href = "/";
+    //   // window.location.replace("/");
+    //   //   window.scrollTo(0,0);
+    // };
 
-    window.addEventListener("beforeunload", handleBeforeUnload);
+    // window.addEventListener("beforeunload", handleBeforeUnload);
+    if (location.pathname != "/") {
+      window.location.replace("/");
+    }
 
-   return () => {
-    window.removeEventListener("beforeunload", handleBeforeUnload);
-   } // navigate("/")
+    // return () => {
+    //   window.removeEventListener("beforeunload", handleBeforeUnload);
+    // }; // navigate("/")
     // window.location.href = "/";
   }, []);
 
   useEffect(() => {
     localStorage.getItem("active");
-    localStorage.setItem("active", active);
+    if (window.location.reload) {
+      localStorage.setItem("active", "Step 1");
+    } else {
+      localStorage.setItem("active", active);
+    }
   }, [active]);
 
   // Navigator display when in summary section
@@ -74,8 +82,11 @@ const App = () => {
     // localStorage.getItem("navDis") == undefined
     //   ? setNavDis(true)
     //   : localStorage.getItem("navDis");
-
-    localStorage.setItem("navDis", navDis);
+    if (window.location.reload) {
+      localStorage.setItem("navDis", true);
+    } else {
+      localStorage.setItem("navDis", navDis);
+    }
   }, [navDis]);
 
   const [summary, setSummary] = useState([]);
