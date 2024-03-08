@@ -32,7 +32,7 @@ const ThankYou = () => {
     setValNumber();
   };
   return (
-    <div className="text-[hsl(231,11%,63%)] flex flex-col items-center justify-center self-center m-auto">
+    <div className="text-[hsl(231,11%,63%)] min-h-full flex flex-col justify-center items-center">
       <img src={thankYou} alt="thank you" className="size-[15%] my-4" />
       <h3 className="thank-header">Thank you!</h3>
       <p className="text-center">

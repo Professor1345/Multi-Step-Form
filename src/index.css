@@ -88,10 +88,12 @@
     /* @apply w-[100%]; */
     @apply py-5 px-4  sm:p-0 rounded-lg;
     @apply text-sm md:text-[15px] overflow-y-auto;
-    @apply max-h-[73vh] sm:h-auto;
-    @apply my-auto;
+    @apply max-h-[73vh] sm:h-full;
   }
 
+  /* .outLet {
+    @apply flex;
+  } */
   /* @media (max-height: 100vh) {
     .outLet {
       @apply max-h-[73vh];
